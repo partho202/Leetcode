@@ -1,3 +1,4 @@
+//-----------राधा-----------//
 class Solution {
 public:
     void moveZeroes(vector<int>& nums) {
@@ -13,7 +14,8 @@ public:
         }
 
         for(int i = pos ; i < n ; i++){
-            nums[i] = 0;
+            nums[i] = 0 ;
         }
+
     }
 };
