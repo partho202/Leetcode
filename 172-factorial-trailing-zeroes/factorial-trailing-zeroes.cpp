@@ -1,16 +1,16 @@
+//-----------राधा-----------//
 class Solution {
 public:
     int trailingZeroes(int n) {
-        int count = 0;
 
-        for(int i = 5; i<=n;i=i*5){
-            int value = n/i;
-            if(value!=0){
-                count+=value;
-            }else{
-                break;
-            }
+        int ans = 0;
+
+        while(n > 0){
+            n /= 5;
+            ans+=n;  // 6/5 = 1 and ans = ans + 1....ans = 0+1=1 ans = 1+0
+            
         }
-        return count;
+
+        return ans;
     }
 };
