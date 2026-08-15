@@ -3,22 +3,24 @@ class Solution {
 public:
     double minPrice(vector<int>& prices, vector<int>& discounts) {
         
-        int n = prices.size();
-        int n1 = discounts.size();
-
-        sort( prices.rbegin() , prices.rend() ) ;
-        sort( discounts.rbegin() , discounts.rend() ) ;
+        sort(prices.rbegin(), prices.rend());
+        sort(discounts.rbegin(), discounts.rend());
         
-        double sum = 0 ;
-        int i = 0 ; 
-        int j = 0 ;
-
-        while(i < n && j < n1 ){
-            sum += (double)( prices[i] * (double)(100-discounts[j]) / 100 ) ;
-            i++;
-            j++;
+        double ans = 0;
+        
+        for(int i = 0; i < prices.size(); i++){
+           
+            if(i < discounts.size()) {
+                
+                double finalPrice = (prices[i] * (100.0-discounts[i]) /100.0);
+                ans += finalPrice;
+            
+            } else {
+               
+                ans += prices[i];
+            }
         }
-        while ( i < n ) sum += prices[i++] ;
-        return sum;
+        
+        return ans;
     }
 };
